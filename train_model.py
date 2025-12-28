@@ -18,10 +18,14 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 # train model
-model = XGBRFRegressor(random_state=42)
+model = XGBRFRegressor(tree_method="hist",        # ✅ CPU ONLY
+    predictor="cpu_predictor",
+    device="cpu",              # ✅ important for newer versions
+    random_state=42)
 model.fit(x_train, y_train)
 
 # SAVE MODEL (THIS CREATES THE FILE)
 joblib.dump(model, "profit_model.pkl")
 
 print("✅ profit_model.pkl created")
+
