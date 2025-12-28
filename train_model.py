@@ -1,6 +1,6 @@
 import pandas as pd
 import joblib
-from xgboost import XGBRFRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 # load dataset
@@ -18,7 +18,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 # train model
-model = XGBRFRegressor(tree_method="hist",        # ✅ CPU ONLY
+model =  LinearRegression(tree_method="hist",        # ✅ CPU ONLY
     predictor="cpu_predictor",
     device="cpu",              # ✅ important for newer versions
     random_state=42)
@@ -28,4 +28,3 @@ model.fit(x_train, y_train)
 joblib.dump(model, "profit_model.pkl")
 
 print("✅ profit_model.pkl created")
-
