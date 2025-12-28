@@ -1,5 +1,6 @@
-streamlit
+streamlit==1.32.0
+python_version < "3.12"
+scikit-learn==1.7.2
+joblib==1.5.2
 numpy
 pandas
-scikit-learn
-joblib
