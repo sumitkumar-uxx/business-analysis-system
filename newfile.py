@@ -29,6 +29,7 @@ if file is not None:
 
         )
 
-        st.dataframe(dataframe.head())
+        st.dataframe(dataframe.head(1000))
      #python -m streamlit run newfile.py command that need to paste in cmd to run the app
+
         
