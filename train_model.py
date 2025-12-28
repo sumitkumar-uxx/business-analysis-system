@@ -1,6 +1,6 @@
 import pandas as pd
 import joblib
-from sklearn.linear_model import LinearRegression
+from xgboost import XGBRFRegressor
 from sklearn.model_selection import train_test_split
 
 # load dataset
@@ -18,7 +18,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 # train model
-model =  LinearRegression(tree_method="hist",        # ✅ CPU ONLY
+model =  XGBRFRegressor(tree_method="hist",        # ✅ CPU ONLY
     predictor="cpu_predictor",
     device="cpu",              # ✅ important for newer versions
     random_state=42)
